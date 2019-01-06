@@ -1,0 +1,293 @@
+// headline font
+$headline-font: "Poppins", serif;
+
+$headline-font2: "Poppins", sans-serif;
+$headline-font3: "Poppins", sans-serif;
+
+// main font
+$font: "Poppins", sans-serif;
+
+//border colour
+$colourBody:#545454;
+$colourBold:#000;
+$colourBodyInvert:#fff; 
+
+$colourAnchor:rgba(198, 61, 61, 1);
+$colourAnchorHover:rgba(198, 61, 61, .5);
+$colourAnchor2:#e58e48;
+$colourAnchorHover2:#e07b29;
+$colourAnchorInvert:#cbedeb;
+$colourAnchorInvertHover:#ededed;
+
+$colourShadeLightest:#f7f7f7;
+$colourShadeLight:#eaeaea;
+$colourShadeMid:#999;
+$colourShadeDark:#333;
+$colourShadeDarkest:#333;
+$colourBorder:#d7d7d7;
+$colourBorderInvert:#fff;
+
+$colourButton:#f1d204;
+$colourButtonHover:#c63d3d;
+$colourButton2:#f8882e;
+$colourButton2Hover:#e07b29;
+$colourButton3:#ff6868;
+$colourButton3Hover:#f44d4d;
+$colourButtonInvert:#cbedeb;
+$colourButtonInvertHover:#ededed;
+
+$colourError:#ff6868;
+$colourSuccess:#57dcc2;
+$colourNeutral:#f8882e;
+
+// tints 
+$colourTint01:#f1d204;
+$colourTint02:#f1d204;
+
+// General styles
+
+// Typography styles
+@mixin paragraphStyle01 {
+  font-family:$font;
+  line-height:1.8em;
+  font-weight:400;
+  margin-bottom:2em;
+}
+@mixin paragraphStyle02 {
+  font-family:$font;
+  font-weight:normal;
+  margin: 0 0 1em;
+  padding: 0;
+  line-height:1.6em;
+  margin-bottom:2em;
+  font-size:1.2em;
+}
+@mixin headerStyle01 {
+  font-family:$headline-font;
+  font-weight:700;
+  text-transform:uppercase;
+  margin: 0 0 1em;
+  padding: 0;
+  letter-spacing:0;
+}
+@mixin headerStyle02 {
+  font-family:$headline-font2;
+  font-weight:700;
+  text-transform:uppercase;
+  margin:0 0 1em;
+  padding:0;
+}
+@mixin headerStyle03 {
+  font-family:$headline-font3;
+  font-weight:normal;
+  margin:0 0 1em;
+  padding:0;
+}
+@mixin headerStyle04 {
+}
+// background styles
+@mixin backgroundStyle01 {
+  
+}
+@mixin backgroundStyle02 {
+  
+}
+@mixin backgroundStyle03 {  
+  select, textarea, input {
+    border-color:$colourShadeMid;
+    color:$colourShadeMid;
+  }
+  a {
+    color:$colourBody;
+  }
+  a:hover {
+    color:$colourBold;
+  }
+} 
+@mixin backgroundStyle04 {
+  
+}
+@mixin backgroundStyle05 {
+  
+}
+@mixin moduleStyle01 {
+  background-color:$colourShadeLightest;
+  @include border-radius(.5em);
+  padding:1em;
+}
+@mixin moduleStyle02 {
+  
+}
+@mixin moduleStyle03 {
+  
+}
+@mixin moduleAlert {
+  background-color:$colourError;
+  color:$colourBodyInvert;
+  @include border-radius(.5em);
+  padding:1em;
+}
+@mixin moduleSuccess {
+  background-color:$colourSuccess;
+  @include border-radius(.5em);
+  padding:1em;
+}
+@mixin moduleNeutral {
+  background-color:$colourNeutral;
+  @include border-radius(.5em);
+  padding:1em;
+}
+// Form elements
+@mixin inputStyle01 {
+  @include paragraphStyle02;
+  margin-bottom:.75em;
+  height: 63px;
+  line-height: 63px;
+  @include border-radius(3px);
+  padding: 0 20px;
+  display: inline-block;
+  border: 1px solid $colourBorder;
+  background: none;
+  &:hover {
+    border-color: $colourBody;
+  }
+}
+@mixin buttonStyle01 {
+  @include headerStyle03;
+  width: auto;
+  height: 63px;
+  line-height: 63px;
+  background:$colourButton;
+  padding: 0 70px;
+  display: inline-block;
+  @include border-radius(3px);
+  font-weight: 700;
+  font-size: 16px;
+  color: $colourBody;
+  border-color:$colourButton;
+  a {
+  }
+  &:hover {
+    border-color: $colourButtonHover;
+    background: $colourButtonHover;
+    color:$colourBodyInvert;
+  }
+}
+@mixin buttonStyle02 {
+  @include headerStyle03;
+  min-width:auto;
+  margin-bottom:.75em;
+  font-style:normal;
+  cursor: pointer;
+  display: inline-block;
+  background: none;
+  text-align:center;
+  font-size:10px;
+  @include border-radius(3px);
+  padding: 5px;
+  background-color:$colourShadeLight;
+  border: 3px solid $colourShadeLight;
+  color: $colourBody;
+  a {
+  }
+  &:hover {
+    border-color: $colourButtonHover;
+    background: $colourButtonHover;
+    color:$colourBodyInvert;
+  }
+}
+@mixin buttonStyle03 {
+  @include headerStyle03;
+  min-width:110px;
+  margin-bottom:.75em;
+  font-style:normal;
+  cursor: pointer;
+  display: inline-block;
+  background: none;
+  text-align:center;
+  font-size:12px;
+  @include border-radius(.5em);
+  padding: .75em 1.5em .75em;
+  background-color:$colourButton3;
+  border: 3px solid $colourButton3;
+  color: $colourBody;
+  a {
+  }
+  &:hover {
+    border-color: $colourButton3Hover;
+    background: $colourButton3Hover;
+    color:$colourBodyInvert;
+  }
+}
+
+// background images
+$background-texture: "body-charcoal.jpg";
+$header-texture: "header-charcoal.jpg";
+$header-color: #242e2c;
+
+// Custom icons
+@font-face {
+  font-family: 'icomoon';
+  src:url('icomoon.eot');
+  src:url('icomoon.eot?#iefix') format('embedded-opentype'),
+    url('icomoon.woff') format('woff'),
+    url('icomoon.ttf') format('truetype'),
+    url('icomoon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="space-icon-"], [class*=" space-icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dpIcon {
+  font-size:4.5em;
+}
+
+.space-icon-economic:before {
+  content: "\e600";
+}
+
+.space-icon-environmental:before {
+  content: "\e601";
+}
+
+.space-icon-facebook:before {
+  content: "\e602";
+}
+
+.space-icon-instagram:before {
+  content: "\e603";
+}
+
+.space-icon-logo:before {
+  content: "\e604";
+}
+
+.space-icon-political:before {
+  content: "\e605";
+}
+
+.space-icon-rss:before {
+  content: "\e606";
+}
+
+.space-icon-social:before {
+  content: "\e607";
+}
+
+.space-icon-twitter:before {
+  content: "\e608";
+}
+

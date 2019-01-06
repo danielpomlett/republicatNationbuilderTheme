@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>{{ page_title }}</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script type="text/javascript">
+    WebFontConfig = {
+      google: { families: [ 'Poppins:400,400i,700'] }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+  </script>
+  <link rel="stylesheet" href="theme.scss" type="text/css">
+  <link rel="stylesheet" href="tablet-and-desktop.scss" type="text/css" media="screen and (min-width: 768px)">
+
+  <!-- because ie8 ignores media queries, we need this -->
+  <!--[if IE 8]>
+    <link rel="stylesheet" href="tablet-and-desktop.scss" type="text/css">
+  <![endif]-->
+
+
+  <!--[if IE]>
+  <link rel="stylesheet" href="ie.scss" type="text/css">
+  <![endif]-->
+
+  {{ content_for_header }}
+
+  <script type="text/javascript">
+    NB.appConfig.userIsLoggedIn = {{request.logged_in?}};
+  </script>
+
+</head>
+<body class="{{ page.page_class_name }} js" style="{% if site.has_background_image? %}background-image:url({{ site.background_image_url }});{% endif %}">
+  <div id="pattern" class="pattern">
+    <div class="wrap" id="wrap">
+      <div id="body" class="page-{{ request.template | replace: '_', '-' }}">
+        {% if site.has_header_image? %}<div class="header-image" style="background-image:url({{ site.header_image_url_1026 }});">{% endif %}
+          {% if page.features_count > 0 %}
+            {% include "features" %}
+            <div class="header-container clearfix featured">
+              <div class="clearfix">
+                <div class="innerPadding row-fluid">
+            {% else %}
+              <div class="header-container clearfix">
+                <div class="clearfix">
+                  <div class="innerPadding row-fluid">
+            {% endif %}
+            {% if site.has_meta_image? %}
+              <div class="site-logo span4">
+                <header class="siteLogo"><a href="/"><img src="{{ site.meta_image_url }}"></a></header>
+              </div>
+            {% else %}
+              <header class="siteTitle span6">
+                <h1 class="title">{{ site.long_name }}: <span>Registre</span></h1>
+              </header>
+            {% endif %}
+              <div class="span6 navWrapper">{% include "nav" %}</div>          
+              <div class="clear"></div>
+            </div>
+          </div>
+          <!-- .width-container -->
+        </div>
+        <!-- .header-container -->
+      {% if site.has_header_image? %}</div>{% endif %}  
+        <div class="main-container" id="middle">
+          <div class="main width-container clearfix">
+
+            {% if request.is_sidebar? %}
+            {% include "columns_2" %}
+            {% else %}
+            {% include "columns_1" %}
+            {% endif %}
+
+          </div>
+          <!-- .main -->
+        </div>
+        <!-- .main-container -->
+        <footer class="clearfix">
+          <div class="width-container">
+
+          {{ content_for_footer }}
+
+          {% if site.footer_content.size > 0 %}
+          <div class="footer-text">{{ site.footer_content }}</div>
+          <hr/>
+          {% endif %}
+
+          <div class="row-fluid">
+
+            <div class="row-fluid">
+              <p>
+              {% if request.logged_in? %}
+                Hi <a href="{{ request.current_signup.settings_url }}">{{ request.current_signup.name_or_email }}</a>. View your
+                {% if site.show_public_profiles? %}
+                  <a href="{{ request.current_signup.profile_url }}">public profile</a>,
+                {% endif %}
+                <a href="{{ request.current_signup.settings_url }}">account settings</a>, or
+                <a href="{{ request.current_signup.logout_url }}">sign out</a>.
+              {% else %}
+                Sign in with <a href="{{ request.facebook_connect_url }}">Facebook</a>, <a
+                    href="{{ request.twitter_connect_url }}">Twitter</a> or <a href="/login">email</a>.
+              {% endif %}
+            </p>
+            <p>
+              <!-- The NationBuilder link below is required. If it is removed, we may add it back ourselves.
+                   You can style it or move it in different ways, but please leave it in the footer. -->
+              Created with <a href="http://nationbuilder.com/">NationBuilder</a>
+            </p>
+          </div>
+        </div>
+        <!-- .width-container -->
+      </footer>
+
+      </div>
+      <!-- #body -->
+    </div>
+    <!-- #wrap -->
+  </div>
+  <!-- #pattern -->
+
+{% if site.has_background_image? %}
+  <!--[if lt IE 9]>
+  <script type="text/javascript" src="/javascripts/jquery.backstretch.min.js"></script>
+  <script type="text/javascript">
+    jQuery.backstretch("{{ site.background_image_url }}", {speed: 0});
+  </script>
+  <![endif]-->
+  <style>
+    .pattern {
+      background: url('{{ site.background_image_url }}') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+</style>
+{% endif %}
+<script src="space-scripts.js"></script>
+</body>
+</html>
+

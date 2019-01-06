@@ -1,0 +1,66 @@
+// buttons
+
+.button {
+  @include buttonStyle01;
+}
+.small-button {
+  @include buttonStyle02;
+  i {
+    font-size:1.2em;
+  }
+}
+
+.tiny-button {
+  font-size: 12px;
+  padding: 2px 5px;
+  min-height: 100%;
+}
+
+.submit-button, .success-button {
+  @include buttonStyle01;
+}
+
+// red button, commonly used to cancel actions
+
+.destroy-link {
+  @include buttonStyle03;
+}
+
+.submit-link {
+  cursor: pointer;
+  @include buttonStyle01;
+}
+
+.neutral-link {
+  @include buttonStyle02;
+}
+
+// button to close share box
+
+.share-close {
+  float: right;
+  margin:0; 
+  min-height: auto;
+  font-size: 14px;
+  padding:0;
+  background:none;
+  border:none;
+  color:$colourShadeMid;
+  &:hover {
+    background:none;
+    color:$colourBold;
+  }
+}
+
+// read more link
+
+.read-more, .read_more {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.share-container {
+  .small-button {
+  }
+}

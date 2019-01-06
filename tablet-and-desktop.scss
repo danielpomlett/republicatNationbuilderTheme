@@ -1,0 +1,799 @@
+/* ===================================================================================
+   This is the tablet and desktop stylesheet. It applies to viewports above 768px.
+   For the mobile first stylesheet which applies to all screen widths, see theme.scss.
+   =================================================================================== */
+
+//* style variables *//
+
+@import "space_styles";
+
+// border-radius mixin
+@import "border_radius";
+
+// fluid grid for tablet
+@import "grid-tablet";
+
+//compass css3 mixins
+@import "compass/css3";
+
+//mobile nav
+@import "mobile-nav";
+
+h1, h2, h4, h5, h6, 
+.breadcrumbs, .byline { 
+  text-align:left;
+}
+// page layout if the sidebar is turned on
+
+.twocolumn-container {
+  margin-top: 40px;
+  margin-bottom: 30px;
+  .left-column, .right-column-wide {
+    float: left;
+    width: 68.2261208577%;
+    // 710px ÷ 1026px
+    margin-right: 1.559454191033%;
+    // 16px ÷ 1026px
+    margin-bottom: 0;
+  }
+  .right-column, .left-column-narrow {
+    margin-top:0;
+    float: left;
+    width: 30.214424951267%;
+    // 310px ÷ 1026px
+    margin-bottom: 0;
+    background:none;
+  }
+  .right-column-wide {
+    margin-right: 0;
+    background:none;
+  }
+  .left-column-narrow {
+    margin-right: 1.559454191033%;
+    // 16px ÷ 1026px
+  }
+}
+
+// wraps your site name or site logo
+.header-container {
+  .innerPadding {
+    padding:20px;
+  }
+}
+.header-image { 
+  min-height:350px;
+  margin-bottom:3em;
+}
+
+header {
+  max-width: 27.875243664717%;
+  // 286px ÷ 1140px
+  float: left;
+  padding: 35px 0 20px 30px;
+}
+
+
+.site-logo {
+  header, header.splash {
+    padding: 0;
+    max-width: 27.875243664717%;
+    img {
+      max-width: 200px;
+    }
+  }
+}
+.siteTitle {
+  padding:1.2em 0 0;
+  h1 {
+    font-size:2em;
+  }
+}
+
+// site wide footer
+
+footer {
+  .footer-right {
+    margin-top: 0;
+    text-align: right;
+  }
+  .row-fluid [class*="span"] {
+    min-height: 0;
+  }
+}
+
+// hides off canvas nav
+
+.wrap.active {
+  left: 0;
+}
+
+.sharetable {
+  display: block;
+  width: 487px;
+  .facebook-cell {
+    float: left;
+    text-align: left;
+    padding: 0 20px 0 0;
+    vertical-align: top;
+    width: 320px;
+  }
+  .twitter-cell {
+    float: left;
+    text-align: left;
+    padding: 0 20px 0 0;
+    vertical-align: top;
+    width: 75px;
+  }
+  .gplus-cell {
+    float: left;
+    text-align: left;
+    vertical-align: top;
+    width: 52px;
+  }
+}
+
+.mobile-visible {
+  display: none;
+}
+
+.desktop-visible {
+  display: block;
+}
+
+.flash-share {
+  .float {
+    float: right;
+  }
+}
+
+// icon which activates off canvas nav
+
+.menu-link {
+  display: none;
+}
+
+// top nav with drop downs
+
+.navWrapper {
+  height:auto;
+  display:none !important;
+}
+
+nav, .subnav {
+  background-color: transparent;
+  border-right: 0;
+  border-top: 0;
+  height: auto;
+  text-align:right;
+  margin-top:.5em;
+  position: static;
+  width: auto;
+  .topnav {
+    margin: 0;
+    padding: 0;
+    clear: both;
+    list-style: none;
+  }
+  li {
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    border-bottom:none;
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: $colourBody;
+      text-decoration:none;
+      padding:20px 10px 20px 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover, &.active{
+      border-color: transparent;
+      a {
+        color: $colourBold;
+        background:none;
+     }
+    }
+  }
+  /* controls bg color of top when hovering on sub */
+  .sub {
+    position: absolute;
+    top: 54px;
+    right:-1px;
+    z-index: 99999;
+    background-color: $colourBody;
+    padding:0;
+    @include border-radius-top-right(2px);
+    @include border-radius-bottom-left(2px);
+    @include border-radius-bottom-right(2px);
+    width: 150px;
+    display: none;
+  }
+  .sub li {
+    width: 100%;
+    border: none;
+    font-size: 13px;
+    line-height: 18px;
+    display: block;
+    background-color: $colourBody;
+    margin-bottom:0;
+    border-color:transparent;
+    @include border-radius(0);
+    text-align:left;
+    &.mobile-visible {
+      display: none;
+    }
+  }
+  .sub a {
+    background: none;
+    padding: 10px;
+    color:$colourBodyInvert !important;
+
+    &:hover {
+      background-color: $colourButtonHover;
+      text-decoration: none;
+      color:$colourBodyInvert;
+    }
+  }
+}
+
+// navigation shown if a page has more than one subpage
+
+.subnav {
+  margin: 0 0 15px 0;
+  padding: 0;
+  float: left;
+  clear: both;
+  font-size: 13px;
+  max-width: 100%;
+}
+
+.desktop-nav {
+  li:hover .sub {
+    display: block;
+  }
+}
+
+// follow page link shown in page stream
+
+.page-follow {
+  float: right;
+  margin-top: -60px;
+}
+
+// inline radio buttons and check boxes
+
+.radio-inline, .checkbox-inline {
+  span {
+    white-space: nowrap;
+    display: inline-block;
+  }
+  input[type="radio"], input[type="checkbox"] {
+    margin: 0;
+    display: inline-block;
+  }
+  input[type="radio"]:checked+label, input[type="checkbox"]:checked+label {
+    background-color: transparent;
+    color: #505054;
+  }
+  label {
+    display: block;
+  }
+  label.radio, label.checkbox {
+    .option_label {
+      display: inline;
+    }
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    width: auto;
+    background-color: transparent;
+    font-family: $font;
+    color: #505054;
+    font-size: 15px;
+    font-weight: normal;
+    text-align: left;
+    padding: 0;
+    margin: 0 10px 10px 5px;
+  }
+  label.checkbox {
+    position: relative;
+    padding: 0;
+    height: auto;
+    font-size: inherit;
+    margin: 0;
+  }
+ &.checkbox-inline {
+    vertical-align: top;
+    li {
+      width: auto;
+      label {
+        width: auto;
+      }
+      input[type="checkbox"] {
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+// inline radio buttons
+
+.radio.inline, .checkbox.inline, .inline label.radio {
+  display: inline-block;
+  margin-right: 20px;
+  padding-top: 5px;
+  margin-bottom: 10px;
+  vertical-align: middle;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  border: 0;
+  padding: 0;
+  background: none;
+  @include box-shadow(0);
+}
+
+// wraps credit card icons
+
+.cc {
+  padding-bottom: 10px;
+}
+
+// paid membership options
+
+ul.membership-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  li.membership {
+    vertical-align: top;
+    display: inline-block;
+    margin: 0 1.22% 1.22% 0;
+    width: 31.8%;
+    height: 250px;
+    .buy {
+      position: absolute;
+      width: 88px;
+      bottom: 15px;
+      margin-left: -44px;
+      left: 50%;
+    }
+  }
+}
+
+// featured content slider
+
+.page-features {
+  position: relative;
+  .features-headline {
+    position:absolute;
+    bottom:0;
+    right:2em;
+    text-align:right;
+  }
+  .featuredSpan {
+    height:600px;
+    background-repeat:no-repeat;
+  }
+}
+.flex-direction-nav {
+  margin-top:-23px;
+  top: 50%;
+}
+
+.flex-prev, .flex-next {
+  display: block;
+  font-size: 3em;
+}
+
+// inline sign in form
+
+.user-session-form-container {
+  .oauth-links {
+   margin-bottom: 0;
+  }
+  .sign-in-with-email, .sign-up {
+    border-left: 1px solid $colourBorder;
+    padding-left: 2.7624309392265194%;
+  }
+}
+
+.review-rules {
+  float: right;
+  padding: 0;
+}
+
+// page specific styles
+.onecolumn-container {
+  margin:40px 0;
+}
+.page-users-accounts-new-wide, .page-users-password-resets-new-wide, .page-users-passwords-new-wide {
+  .onecolumn-container {
+    margin: 0 auto;
+    margin-top: -30px;
+    margin-bottom: 20px;
+    width: 75%;
+  }
+  footer {
+    margin: 0 auto;
+    width: 75%;
+  }
+}
+
+.page-pages-show-voter-registration .iframe-wrapper {
+  left: 0;
+  width: 100%;
+}
+
+#event_rsvp_guests_count, input.quantity, #signup_donations_to_raise_amount {
+  width: 25%;
+}
+
+.suggestion-tag-list {
+  li {
+    margin: 15px 15px 10px 0;
+  }
+}
+
+input#donation_amount_other {
+  width: 30%;
+}
+
+.distance {
+  .within {
+    position: relative;
+    top: 2px;
+    display: inline;
+    padding-right: 5px;
+  }
+}
+
+.page-user-sessions-new-wide {
+  h2 {
+    font-size: 31.5px;
+    line-height: 35px;
+  }
+}
+
+// inline formatting for name, activity type and date in page stream for tablet and desktop view
+
+ul#page-stream {
+  li.activity  {
+    span + a {
+    display: inline;
+    } 
+  }
+  .activity-time {
+    display: inline;
+  }
+  .timeago {
+    display: inline;
+    padding-right: 0;
+    float: none;
+    font-size: 65%;
+    color: inherit;
+  }
+  .activity_links a {
+    display: inline;
+  }
+  .activity_content {
+    clear: none;
+  }
+}
+
+// Tablet only
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+// off canvas nav to be used on tablets, since drop downs don't work on touch devices
+
+  nav {
+    @include mobile-nav;
+    float: none;
+    margin: 0;
+    li {
+      margin: 0;
+      padding: 0;
+      @include border-radius(0);
+      &.active, &.drop {
+      }
+      a {
+        padding: .8em;
+      }
+      a:hover {
+        background:none;
+      }
+    }
+    .sub {
+      position: static;
+      width: 100%;
+      padding: 0;
+      li {
+        border-bottom: 1px solid darken($colourAnchor, 15);
+        background-color: darken($colourAnchor, 5);
+        &:last-child {
+          margin-bottom: 0;
+        }
+        a {
+          text-decoration:none;
+        }
+        &.mobile-visible {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .menu-link {
+    display: block;
+  }
+
+  .wrap.active {
+    left: 16em;
+  }
+
+// javascript is used to wrap all iframes in a span called responsive-embed-wrapper to make them responsive.
+// once the iframe is wrapped in said span, it will be shown.
+
+  iframe[src *= 'youtube'] {
+    display: none;
+  }
+
+  .responsive-embed-wrapper iframe {
+    display: block;
+  }
+
+  .fb-like-box iframe {
+    display: block;
+  }
+
+  header {
+    padding: 28px 0 0 0;
+    max-width: 78%;
+  }
+
+// replaces the subnav with breadcrumbs, as dropdowns don't work in touch devices
+
+  .tablet-visible {
+    display: block;
+  }
+
+  .desktop-visible {
+    .subnav-container {
+      display: none;
+    }
+  }
+}
+
+// Desktop above 1140px styles
+
+@media only screen and (min-width: 1140px) {
+
+  // maximum side width container
+
+  .width-container {
+    width: 1026px; /* 1140px - 10% for margins */
+    margin: 0 auto;
+  }
+
+  // paid membership options
+
+  ul.membership-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li.membership {
+      position: relative;
+      float: left;
+      text-align: center;
+      list-style: none;
+      background-color: #f3f3f3;
+      @include border-radius(2px);
+      padding: 15px;
+      display: inline-block;
+      margin: 0 10px 15px 0;
+      width: 23.983739837398%; // 236px ÷ 984px
+      height: 250px;
+      .membership-bottom {
+        background-color: #444;
+        color: #ccc;
+      }
+      .membership-blurb {
+        padding: 15px 0;
+        font-size: 13px;
+        line-height: 16px;
+      }
+      .buy {
+        position: absolute;
+        width: 88px;
+        bottom: 15px;
+        margin-left: -44px;
+        left: 50%;
+      }
+      .badge {
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+}
+.supporter-pic {
+  display:block;
+  text-align:left;
+}
+
+.supporter-pic-left {
+  float: left;
+  margin: -1px 6px 0 -1px;
+  display: table-cell;
+  a {
+    display: block;
+  } 
+}
+.supporter-pic-right {
+  display: table-cell;
+  min-height: 72px;
+  padding: 10px 2% 2% 10px;
+  vertical-align: middle;
+  .name {
+    word-break: break-word;
+  }
+}
+/* Interface additions */
+.flex {
+  display:flex;
+  align-items:center;
+  min-height: 60vh;
+}
+.pageHeightWrapper {
+  margin:auto;
+  width:100%;
+  max-width:960px;
+}
+.progressWrapper {
+  margin-bottom:20px;
+}
+.signUpProcessWrapper {
+  .signUpProcessInner {
+    padding:20px;
+  }
+  .intro {
+    margin-bottom:20px;
+  }
+}
+.signUpForm {
+  .form {
+    padding:20px 20px 10px;
+  }
+}
+.progressIcon {
+  .icon {
+    width:117px;
+    height:100px;
+    margin:auto;
+    background-size:auto 300px;
+    &.unfinished {
+      background-position:left center;
+    }
+    &.activeStage {
+      background-position:left top;
+    }
+  }
+  .icon02 {
+    background-position:468px bottom;
+    &.activeStage {
+      background-position:468px top;
+    }
+    &.unfinished {
+      background-position:468px center;
+    }
+  }
+  .icon03 {
+    background-position:351px bottom;
+    &.activeStage {
+      background-position:351px top;
+    }
+    &.unfinished {
+      background-position:351px center;
+    }
+  }
+  .icon04 {
+    background-position:234px bottom;
+    &.activeStage {
+      background-position:234px top;
+    }
+    &.unfinished {
+      background-position:234px center;
+    }
+  }
+  .icon05 {
+    background-position:right bottom;
+    &.activeStage {
+      background-position:right top;
+    }
+    &.unfinished {
+      background-position:right center;
+    }
+  }
+  .iconLabel {
+    font-size:20px;
+    display:block;
+  }
+}
+.activeStage{
+  &:after {
+    height:35px;
+  }
+}
+.popUp {
+  display:block;
+  padding:10px;
+  background-color:rgba(0,0,0, .8);
+  @include border-radius(3px);
+  position:absolute;
+  color:$colourBodyInvert;
+  top: -65px;
+  height: 75px;
+  width: 200px;
+  left: 50%;
+  margin: auto;
+  margin-left: -100px;
+  display: flex;
+  align-items: center;
+  opacity:0;
+  margin-top:10px;
+  transition:opacity .5s, margin-top .3s;
+  transition-delay:.3s;
+  span {
+    text-align: center;
+    margin:auto;
+  }
+  &:after {
+    content:'';
+    position:absolute;
+    bottom:-10px;
+    left:50%;
+    margin-left:-10px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid rgba(0,0,0, .8);
+  }
+  &.negative {
+    background-color:rgba(198,61,61, .8);
+    &:after {
+      border-top: 10px solid rgba(198,61,61, .8);
+    }
+  }
+}
+
+.progressIcon,
+.helpWrapper {
+  position:relative;
+  &:hover {
+    .popUp {
+      margin-top:0;
+      opacity:1 !important;
+    }
+  }
+  .popUp {
+    visibility:visible;
+    top:-85px;
+    .popCopy {
+      padding:0;
+      &:before {
+        display:none;
+      }
+    }
+  }
+  .close {
+    display:none;
+  }
+}

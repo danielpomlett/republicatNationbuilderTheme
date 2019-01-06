@@ -1,0 +1,122 @@
+// headline font
+$headline-font: "Poppins", serif;
+
+$headline-font2: "Poppins", sans-serif;
+$headline-font3: "Poppins", sans-serif;
+
+// main font
+$font: "Poppins", sans-serif;
+
+$theme-color-1: #000;
+$theme-color-2: #000;
+$theme-color-3: #000;
+$theme-color-4: #32b8aa;
+// form input area focus color
+$theme-color-5: rgba(36, 46, 44, 0.8);
+//shades
+$theme-color-6: #b2d3d4;
+$theme-color-8: #d5eff0;
+$theme-color-9: #dff7f8;
+//border colour
+$theme-color-7: #8fa9aa;
+// tints 
+$tint-color-1: rgba(36, 46, 44, 0.8);
+// general success and error colors
+$red: #b94a48;
+$green: #619114;
+
+// General styles
+
+// Typography styles
+@mixin paragraphStyle01 {
+  font-family:$font;
+  line-height:1.6em;
+  font-weight:400;
+  margin:0 0 20px;
+}
+@mixin paragraphStyle02 {
+  font-family:$headline-font;
+  font-style:italic;
+  font-weight:normal;
+  margin:0 0 20px;
+  padding: 0;
+}
+@mixin headerStyle01 {
+  font-family:$headline-font;
+  font-style:italic;
+  font-weight:normal;
+  margin: 0 0 1em;
+  padding: 0;
+}
+@mixin headerStyle02 {
+  font-family:$headline-font2;
+  text-transform:uppercase;
+  letter-spacing:.25em;
+  font-weight:normal;
+  margin:0 0 1em;
+  padding:0;
+}
+@mixin headerStyle03 {
+  text-transform:uppercase;
+  letter-spacing:.25em;
+  font-weight:normal;
+  margin:0 0 1em;
+  padding:0;
+}
+@mixin headerStyle04 {
+}
+// background styles
+@mixin backgroundStyle01 {
+}
+@mixin backgroundStyle02 {
+}
+@mixin backgroundStyle03 {
+} 
+@mixin backgroundStyle04 {
+}
+// Form elements
+@mixin inputStyle01 {
+  @include paragraphStyle02;
+  @include border-radius(1em);
+  padding:1em;
+  border: 2px solid $theme-color-1;
+  background: none;
+  &:hover {
+    border-color: $theme-color-3;
+  }
+}
+@mixin buttonStyle01 {
+  @include headerStyle02;
+  line-height:1em;
+  font-size:1.4em;
+  cursor: pointer;
+  display: inline-block;
+  background: none;
+  @include border-radius(10em);
+  padding: 1em 1.4em .85em 1.5em;
+  border: 2px solid $theme-color-1;
+  a {
+  }
+  &:hover {
+    border-color: $theme-color-3;
+    color: $theme-color-3;
+  }
+}
+@mixin buttonStyle02 {
+  @include headerStyle03;
+  font-size:.8em;
+  border:none;
+  padding:1em .75em 1em 1em;
+  background-color:$theme-color-3;
+  color:$theme-color-2;
+  @include border-radius(.5em);
+  &:hover {
+    background-color: $theme-color-9;
+    color: $theme-color-1;
+  }
+}
+
+// background images
+$background-texture: "body-charcoal.jpg";
+$header-texture: "header-charcoal.jpg";
+$header-color: #242e2c;
